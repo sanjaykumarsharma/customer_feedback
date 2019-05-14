@@ -15,7 +15,7 @@
 
   </head>
 
-  <body class="bg-grey-lightest font-sans leading-normal tracking-normal">
+  <body class="bg-gray-100 font-sans leading-normal tracking-normal">
 
     <%= if assigns[:current_user] do %>
       <%= render "nav.html", assigns %>
@@ -23,7 +23,7 @@
 
    <%= if assigns[:current_user] do %>
      <div class="container w-full mx-auto pt-20">
-       <div class="w-full px-4 md:px-0 md:mt-8 mb-16 text-grey-darkest leading-normal"> 
+       <div class="w-full px-4 md:px-0 md:mt-8 mb-16 text-gray-800 leading-normal">
    <%= end %>
 
    <%= if !assigns[:current_user] do %>
@@ -45,6 +45,8 @@
       <div class="fixed right-0 bottom-0 max-w-md px-4 py-3 rounded-lg bg-red-200 shadow-md mr-6 mb-6 text-red-600"><%= get_flash(@conn, :error) %>
       </div>
     <% end %>
+
+    <%= render "footer.html", assigns %>
 
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
 
@@ -100,8 +102,6 @@
     }
     return false;
   }
-
-
 </script>
   </body>
 
