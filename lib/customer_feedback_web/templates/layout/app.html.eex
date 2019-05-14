@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+  </head>
+
+  <body class="bg-grey-lightest font-sans leading-normal tracking-normal">
+
+    <%= if assigns[:current_user] do %>
+      <%= render "nav.html", assigns %>
+    <% end %>
+
+   <%= if assigns[:current_user] do %>
+     <div class="container w-full mx-auto pt-20">
+       <div class="w-full px-4 md:px-0 md:mt-8 mb-16 text-grey-darkest leading-normal"> 
+   <%= end %>
+
+   <%= if !assigns[:current_user] do %>
+      <div >
+       <div>  
+   <% end %>
+        
+        <%= render @view_module, @view_template, assigns %>
+       </div> 
+    </div>
+
+
+    <%= if get_flash(@conn, :info) do %>
+      <div class="fixed right-0 bottom-0 max-w-md px-4 py-3 rounded-lg bg-blue-200 shadow-md mr-6 mb-6 text-blue-600"><%= get_flash(@conn, :info) %>
+      </div>
+    <% end %>
+
+    <%= if get_flash(@conn, :error) do %>
+      <div class="fixed right-0 bottom-0 max-w-md px-4 py-3 rounded-lg bg-red-200 shadow-md mr-6 mb-6 text-red-600"><%= get_flash(@conn, :error) %>
+      </div>
+    <% end %>
+
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+
+<script>
+  /*Toggle dropdown list*/
+  /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
+
+  var userMenuDiv = document.getElementById("userMenu");
+  var userMenu = document.getElementById("userButton");
+  
+  var navMenuDiv = document.getElementById("nav-content");
+  var navMenu = document.getElementById("nav-toggle");
+  
+  document.onclick = check;
+
+  function check(e){
+    var target = (e && e.target) || (event && event.srcElement);
+
+    //User Menu
+    if (!checkParent(target, userMenuDiv)) {
+    // click NOT on the menu
+    if (checkParent(target, userMenu)) {
+      // click on the link
+      if (userMenuDiv.classList.contains("invisible")) {
+      userMenuDiv.classList.remove("invisible");
+      } else {userMenuDiv.classList.add("invisible");}
+    } else {
+      // click both outside link and outside menu, hide menu
+      userMenuDiv.classList.add("invisible");
+    }
+    }
+    
+    //Nav Menu
+    if (!checkParent(target, navMenuDiv)) {
+    // click NOT on the menu
+    if (checkParent(target, navMenu)) {
+      // click on the link
+      if (navMenuDiv.classList.contains("hidden")) {
+      navMenuDiv.classList.remove("hidden");
+      } else {navMenuDiv.classList.add("hidden");}
+    } else {
+      // click both outside link and outside menu, hide menu
+      navMenuDiv.classList.add("hidden");
+    }
+    }
+    
+  }
+
+  function checkParent(t, elm) {
+    while(t.parentNode) {
+    if( t == elm ) {return true;}
+    t = t.parentNode;
+    }
+    return false;
+  }
+
+
+</script>
+  </body>
+
+</html>

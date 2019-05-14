@@ -1,0 +1,47 @@
+<div class="flex mb-4">
+
+  <div class="w-1/2">
+    <h1 class="pb-1">Ratings</h1>
+  </div>
+
+  <div class="w-1/2">
+    <span><%= link "+", class: "float-right bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full", to: Routes.rating_path(@conn, :new) %></span>
+  </div>
+
+</div>
+
+<div class="bg-white rounded shadow-lg p-5" style="width: 100%;">
+
+<table class="w-full text-left table-collapse">
+  <thead>
+    <tr>
+      <th class="text-sm font-semibold text-gray-700 p-2 bg-gray-100">Mobile</th>
+      <th class="text-sm font-semibold text-gray-700 p-2 bg-gray-100">Rating</th>
+      <th class="text-sm font-semibold text-gray-700 p-2 bg-gray-100">Rating date</th>
+
+      <th class="text-sm font-semibold text-gray-700 p-2 bg-gray-100"></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for rating <- @ratings do %>
+    <tr>
+      <td class="p-2 border-t border-gray-300 font-mono text-xs text-purple-700 whitespace-no-wrap">
+        <%= rating.mobile %>
+      </td>
+      <td class="p-2 border-t border-gray-300 font-mono text-xs text-purple-700 whitespace-no-wrap">
+        <%= rating.rating %>
+      </td>
+      <td class="p-2 border-t border-gray-300 font-mono text-xs text-purple-700 whitespace-no-wrap">
+        <%= format_date(rating.rating_date) %>
+      </td>
+
+      <td class="p-2 border-t border-gray-300 font-mono text-xs text-purple-700 whitespace-no-wrap">
+        <%= link "Edit", to: Routes.rating_path(@conn, :edit, rating), class: "float-right" %>
+        <%= link "Delete", to: Routes.rating_path(@conn, :delete, rating), method: :delete,  data: [confirm: "Are you sure?"], class: "pr-2 float-right" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+</div>

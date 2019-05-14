@@ -1,0 +1,23 @@
+<h1>Show Rating</h1>
+
+<ul>
+
+  <li>
+    <strong>Mobile:</strong>
+    <%= @rating.mobile %>
+  </li>
+
+  <li>
+    <strong>Rating:</strong>
+    <%= @rating.rating %>
+  </li>
+
+  <li>
+    <strong>Rating date:</strong>
+    <%= @rating.rating_date %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.rating_path(@conn, :edit, @rating) %></span>
+<span><%= link "Back", to: Routes.rating_path(@conn, :index) %></span>

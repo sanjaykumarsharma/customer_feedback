@@ -1,0 +1,130 @@
+
+
+<div class="border rounded p-5">
+	<h1>User Profile</h1>
+	<table class="w-full text-left table-collapse">
+		<tbody class="align-baseline">
+			<tr>
+				<td class="p-2 border-t border-gray-300 font-mono text-xs">
+					Name
+				</td> 
+				<td class="p-2 border-t border-gray-300 font-mono">
+				   <%= @profile.name %>
+			    </td>
+			    <td class="p-2 border-t border-gray-300 font-mono">
+			    	<%= link ">", to: "/edit", class: "float-right" %>
+			    </td>
+			</tr> 
+			<tr>
+				<td class="p-2 border-t border-gray-200 font-mono text-xs">
+					Address
+				</td>
+				<td class="p-2 border-t border-gray-200 font-mono">
+					<%= @profile.address %>
+				</td>
+				<td class="p-2 border-t border-gray-300 font-mono">
+			    	<span class="float-right"> > </span>
+			    </td>
+			</tr>
+			<tr>
+				<td class="p-2 border-t border-gray-200 font-mono text-xs">
+					City
+				</td>
+				<td class="p-2 border-t border-gray-200 font-mono">
+					<%= @profile.city %>
+				</td>
+				<td class="p-2 border-t border-gray-300 font-mono">
+			    	<span class="float-right"> > </span>
+			    </td>
+			</tr>
+			<tr>
+				<td class="p-2 border-t border-gray-200 font-mono text-xs">
+					State
+				</td>
+				<td class="p-2 border-t border-gray-200 font-mono">
+					<%= @profile.state %>
+				</td>
+				<td class="p-2 border-t border-gray-300 font-mono">
+			    	<span class="float-right"> > </span>
+			    </td>
+			</tr>
+			<tr>
+				<td class="p-2 border-t border-gray-200 font-mono text-xs">
+					Pin
+				</td>
+				<td class="p-2 border-t border-gray-200 font-mono">
+					<%= @profile.pin %>
+				</td>
+				<td class="p-2 border-t border-gray-300 font-mono">
+			    	<span class="float-right"> > </span>
+			    </td>
+			</tr>
+			<tr>
+				<td class="p-2 border-t border-gray-200 font-mono text-xs">
+					Phone
+				</td>
+				<td class="p-2 border-t border-gray-200 font-mono">
+					<%= @profile.phone %>
+				</td>
+				<td class="p-2 border-t border-gray-300 font-mono">
+			    	<span class="float-right"> > </span>
+			    </td>
+			</tr>
+			<tr>
+				<td class="p-2 border-t border-gray-200 font-mono text-xs">
+					Status
+				</td>
+				<td class="p-2 border-t border-gray-200 font-mono">
+					<%= @profile.status %>
+				</td>
+				<td class="p-2 border-t border-gray-300 font-mono">
+			    	<span class="float-right"> > </span>
+			    </td>
+			</tr>
+			<tr>
+				<td class="p-2 border-t border-gray-200 font-mono text-xs">
+					Email
+				</td>
+				<td class="p-2 border-t border-gray-200 font-mono">
+					<%= @profile.email %>
+				</td>
+				<td class="p-2 border-t border-gray-300 font-mono">
+			    	<span class="float-right"> > </span>
+			    </td>
+			</tr>
+			<tr>
+				<td class="p-2 border-t border-gray-200 font-mono text-xs">
+					Username
+				</td>
+				<td class="p-2 border-t border-gray-200 font-mono">
+					<%= @profile.user_name %>
+				</td>
+				<td class="p-2 border-t border-gray-300 font-mono">
+			    	<span class="float-right"> > </span>
+			    </td>
+			</tr>
+			<tr>
+				<td class="p-2 border-t border-gray-200 font-mono text-xs">
+					Valid Upto
+				</td>
+				<td class="p-2 border-t border-gray-200 font-mono">
+					<%= @profile.valid_upto %>
+				</td>
+				<td class="p-2 border-t border-gray-300 font-mono">
+			    	<span class="float-right"> > </span>
+			    </td>
+			</tr>
+			<tr>
+				<td class="p-2 border-t border-gray-200 font-mono text-xs">
+					Picture
+				</td>
+				<td class="p-2 border-t border-gray-200 font-mono">
+					<%= @profile.picture %>
+				</td>
+				<td class="p-2 border-t border-gray-300 font-mono">
+			    	<span class="float-right"> > </span>
+			    </td>
+			</tr>
+		</tbody>
+	</table>
+</div>
