@@ -39,6 +39,8 @@ defmodule CustomerFeedbackWeb.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
+    # 30 days
+    max_age: 24 * 60 * 60 * 30,
     key: "_customer_feedback_key",
     signing_salt: "b5hpwnkv"
 

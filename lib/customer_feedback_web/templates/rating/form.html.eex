@@ -5,12 +5,12 @@
     </div>
   <% end %>
   
-  <div class="mb-4">
-    <%= label f, :mobile, class: "block text-gray-700 text-sm font-bold mb-2" %>
-    <%= text_input f, :mobile, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"%>
+  <%# <div class="mb-4"> %>
+    <%=# label f, :mobile, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%=# text_input f, :mobile, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"%>
 
-    <p class="text-red-500 text-xs italic"><%= error_tag f, :mobile %></p>
-  </div>
+    <%# <p class="text-red-500 text-xs italic"> %><%=# error_tag f, :mobile %><%# </p>
+  </div> %>
 
   <div class="mb-4">
     <%= label f, :rating, class: "block text-gray-700 text-sm font-bold mb-2" %>
@@ -41,12 +41,12 @@
     <p class="text-red-500 text-xs italic"><%= error_tag f, :rating %></p>
   </div>
 
-  <div class="mb-4">
-    <%= label f, :rating_date, class: "block text-gray-700 text-sm font-bold mb-2" %>
-    <%= text_input f, :rating_date, class: "date shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  <%# <div class="mb-4"> %>
+    <%=# label f, :rating_date, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%=# text_input f, :rating_date, class: "date shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
 
-    <p class="text-red-500 text-xs italic"><%= error_tag f, :rating_date %></p>
-  </div>
+    <%# <p class="text-red-500 text-xs italic"> %><%=# error_tag f, :rating_date %><%# </p> %>
+  <%# </div> %>
 
 
   <div>
@@ -57,11 +57,11 @@
 
 <script type="text/javascript">
 
-  flatpickr(".date", {
-    altInput: true,
-    altFormat: "d/m/Y",
-    dateFormat: "Y-m-d",
-  });
+  // flatpickr(".date", {
+  //   altInput: true,
+  //   altFormat: "d/m/Y",
+  //   dateFormat: "Y-m-d",
+  // });
 
   function rate_one() {
     document.getElementById("rating_rating").value = document.getElementById("rate1").value;;

@@ -15,7 +15,7 @@ defmodule CustomerFeedback.Ratings.Rating do
   @doc false
   def changeset(rating, attrs) do
     rating
-    |> cast(attrs, [:mobile, :rating, :rating_date])
-    |> validate_required([:mobile, :rating, :rating_date])
+    |> cast(attrs, [:mobile, :rating])
+    |> validate_required([:rating])
   end
 end

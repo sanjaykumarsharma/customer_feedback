@@ -1,0 +1,31 @@
+<div class="flex mb-4">
+
+  <div class="w-1/2">
+    <h1 class="pb-1">New Rating</h1>
+  </div>
+
+  <div class="w-1/2">
+   
+  </div>
+
+</div>
+
+<div class="bg-white rounded shadow-lg p-5" style="width: 100%;">
+
+	<%= form_for @conn, Routes.rating_path(@conn, :check_mobile), fn f -> %>
+
+        <div class="mb-4">
+	     <%= label f, :mobile, class: "block text-gray-700 text-sm font-bold mb-2" %>
+	     <%= text_input f, :mobile, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"%>
+       <p class="text-red-500 text-xs italic"><%= error_tag f, :mobile %><%# </p> %>
+       
+
+	    </div>
+
+        <div class="flex items-center justify-between">
+          <%= submit "Next >>", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        </div>
+
+      <% end %>
+
+</div>

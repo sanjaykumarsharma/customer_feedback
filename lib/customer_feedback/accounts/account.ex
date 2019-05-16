@@ -20,9 +20,10 @@ defmodule CustomerFeedback.Accounts.Account do
 
     timestamps()
 
-    # has_many(:users, Account.User)
-    # has_many(:questions, Account.Question)
-    has_many(:ratings, CustomerFeedback.Accounts.Rating)
+    # has_many(:users, CustomerFeedback.Account.User)
+    # has_many(:questions, CustomerFeedback.Settings.Question)
+    # has_many(:ratings, CustomerFeedback.Ratings.Rating)
+    # has_many(:customers, CustomerFeedback.Customers.Rating)
   end
 
   def signup_changeset(access, attrs) do

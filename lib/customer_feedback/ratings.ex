@@ -8,6 +8,8 @@ defmodule CustomerFeedback.Ratings do
 
   alias CustomerFeedback.Ratings.Rating
 
+  alias CustomerFeedback.Customers.Customer
+
   @doc """
   Returns the list of ratings.
 
@@ -49,10 +51,12 @@ defmodule CustomerFeedback.Ratings do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_rating(attrs \\ %{}, account_id) do
+  def create_rating(attrs \\ %{}, mobile, account_id) do
     %Rating{}
     |> Rating.changeset(attrs)
+    |> Ecto.Changeset.put_change(:mobile, mobile)
     |> Ecto.Changeset.put_change(:account_id, account_id)
+    |> IO.inspect()
     |> Repo.insert()
   end
 
@@ -101,5 +105,17 @@ defmodule CustomerFeedback.Ratings do
   """
   def change_rating(%Rating{} = rating) do
     Rating.changeset(rating, %{})
+  end
+
+  def change_customer(%Customer{} = customer) do
+    Customer.changeset(customer, %{})
+  end
+
+  def create_customer(attrs \\ %{}, account_id) do
+    %Customer{}
+    |> Customer.changeset(attrs)
+    |> Ecto.Changeset.put_change(:account_id, account_id)
+    |> IO.inspect()
+    |> Repo.insert()
   end
 end

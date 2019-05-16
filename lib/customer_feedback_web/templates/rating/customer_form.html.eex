@@ -1,0 +1,74 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <%= label f, :name, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= text_input f, :name, class: "appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:shadow-outline" %>
+      <p class="text-red-500 text-xs italic"><%= error_tag f, :name %></p>
+    </div>
+
+    <div class="w-full md:w-1/2 px-3">
+      <%= label f, :mobile, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= text_input f, :mobile1, value: @mobile, class: "appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:shadow-outline", disabled: "disabled"%>
+      <%= hidden_input f, :mobile, value: @mobile, class: "appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:shadow-outline"%>
+      <p class="text-red-500 text-xs italic"><%= error_tag f, :mobile %></p>
+    </div>
+
+  </div>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <%= label f, :doa, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= text_input f, :doa, class: "date appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:shadow-outline"%>
+      <p class="text-red-500 text-xs italic"><%= error_tag f, :doa %></p>
+    </div>
+
+    <div class="w-full md:w-1/2 px-3">
+      <%= label f, :dob, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= text_input f, :dob, class: "date appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:shadow-outline"%>
+      <p class="text-red-500 text-xs italic"><%= error_tag f, :dob %></p>
+    </div>
+
+  </div>
+  
+  <div class="mb-4">
+    <%= label f, :email, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+    <%= text_input f, :email, class: "appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:shadow-outline"%>
+
+    <p class="text-red-500 text-xs italic"><%= error_tag f, :email %></p>
+  </div>
+
+  
+  <div class="flex flex-wrap -mx-3 mb-6">
+
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <%= if assigns[:id] do %>
+      <span><%= link "Skip >>", class: "float-right bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full", to: Routes.rating_path(@conn, :new, @id, @mobile) %></span>
+      <% end %>
+    </div>
+
+    <div class="w-full md:w-1/2 px-3">
+      <%= submit "Next >>", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full float-left" %>
+    </div>
+
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+
+  flatpickr(".date", {
+    altInput: true,
+    altFormat: "d/m/Y",
+    dateFormat: "Y-m-d",
+  });
+
+   
+</script>

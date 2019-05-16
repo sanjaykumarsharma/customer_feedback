@@ -59,6 +59,15 @@ defmodule CustomerFeedbackWeb.Router do
     put "/edit", ProfileController, :update_profile
 
     resources "/questions", QuestionController
-    resources "/ratings", RatingController
+    # resources "/ratings", RatingController
+
+    get "/ratings", RatingController, :mobile_form
+    post "/ratings", RatingController, :check_mobile
+
+    post "/ratings/new", RatingController, :create_customer
+    put "/ratings/edit/:id", RatingController, :update_customer
+
+    get "/ratings/:id/new/:mobile", RatingController, :new
+    post "/ratings/:id/new/:mobile", RatingController, :create
   end
 end

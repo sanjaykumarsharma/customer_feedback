@@ -5,13 +5,13 @@
   </div>
 
   <div class="w-1/2">
-    <span><%= link "Back", class: "float-right bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full", to: Routes.rating_path(@conn, :index) %></span>
+    <span><%=# link "Back", class: "float-right bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full", to: Routes.rating_path(@conn, :index) %></span>
   </div>
 
 </div>
 
 <div class="bg-white rounded shadow-lg p-5" style="width: 100%;">
 
-	<%= render "form.html", Map.put(assigns, :action, Routes.rating_path(@conn, :create)) %>
+	<%= render "form.html", Map.put(assigns, :action, Routes.rating_path(@conn, :create, @id, @mobile)) %>
 
 </div>

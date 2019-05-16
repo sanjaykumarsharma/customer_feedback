@@ -1,0 +1,17 @@
+<div class="flex mb-4">
+
+  <div class="w-1/2">
+    <h1 class="pb-1">New Rating</h1>
+  </div>
+
+  <div class="w-1/2">
+    <span><%= link "Back", class: "float-right bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full", to: Routes.rating_path(@conn, :mobile_form) %></span>
+  </div>
+
+</div>
+
+<div class="bg-white rounded shadow-lg p-5" style="width: 100%;">
+
+  <%= render "customer_form.html", Map.put(assigns, :action, Routes.rating_path(@conn, :create_customer)) %>
+
+</div>

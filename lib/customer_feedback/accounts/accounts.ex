@@ -3,6 +3,7 @@ defmodule CustomerFeedback.Accounts do
   alias CustomerFeedback.Repo
 
   alias CustomerFeedback.Accounts.Account
+  alias CustomerFeedback.Customers.Customer
 
   def create_account(attrs \\ %{}) do
     %Account{}
@@ -25,6 +26,14 @@ defmodule CustomerFeedback.Accounts do
     Repo.one(
       from(a in Account,
         where: a.id == ^id
+      )
+    )
+  end
+
+  def get_account_by_mobile(id, mobile) do
+    Repo.one(
+      from(a in Account,
+        where: a.id == ^id and a.phone == ^mobile
       )
     )
   end
@@ -74,7 +83,30 @@ defmodule CustomerFeedback.Accounts do
     Repo.all(Account)
   end
 
-  def delete_all_accounts do
-    Repo.delete_all(Account)
+  # def delete_all_accounts do
+  #   Repo.delete_all(Account)
+  # end
+
+  def get_customer_by_mobile(id, mobile) do
+    record =
+      Repo.one(
+        from(a in Customer,
+          where: a.account_id == ^id and a.mobile == ^mobile
+        )
+      )
+
+    if record != nil do
+      {:ok, record}
+    else
+      nil
+    end
+  end
+
+  def get_customer!(id), do: Repo.get!(Customer, id)
+
+  def update_customer(%Customer{} = customer, attrs) do
+    customer
+    |> Customer.changeset(attrs)
+    |> Repo.update()
   end
 end
